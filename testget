@@ -1,0 +1,8 @@
+import getuniversities
+
+var1 = 100
+var2 = 200
+
+print getuniversities.finduniversities(var1,var2)
+
+

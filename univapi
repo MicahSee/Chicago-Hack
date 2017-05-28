@@ -1,0 +1,19 @@
+from flask import Flask, request
+from flask_restful import Resource, Api
+import getuniversities
+import ast
+
+app = Flask(__name__)
+api = Api(app)
+
+class getcoord(Resource):
+  def put(self):
+    coords = request.args.get("data").split(",")
+    lat1 = coords[0]
+    long1 = coords[1]
+    univlist = getuniversities.finduniversities(lat1,long1)
+    return univlist
+
+api.add_resource(getcoord, '/')
+if __name__ == '__main__':
+    app.run(debug=True, port=5001)

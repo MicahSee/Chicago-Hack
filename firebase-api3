@@ -1,0 +1,59 @@
+from flask import Flask, request
+from flask_restful import Resource, Api
+import pyrebase
+import ast
+
+app = Flask(__name__)
+api = Api(app)
+
+
+class adduser(Resource):
+    def put(self):
+        userpass = ast.literal_eval(request.form['data'])
+
+        config = {
+            "apiKey": "AIzaSyCDtC3dadmA_zOjmgfJPrCPYmKi9SNSBbg",
+            "authDomain": "nexthorizon-9094f.firebaseapp.com",
+            "databaseURL": "https://nexthorizon-9094f.firebaseio.com",
+            "projectId": "nexthorizon-9094f",
+            "storageBucket": "nexthorizon-9094f.appspot.com",
+            "messagingSenderId": "330406784555"
+        }
+
+        firebase = pyrebase.initialize_app(config)
+
+        auth = firebase.auth()
+        user = auth.sign_in_with_email_and_password("exploretheworldofdell@gmail.com", "7428Micah1711")
+
+        username = userpass['username']
+        db = firebase.database()
+        db.child("User").child(username).set(userpass, user['idToken'])
+        return
+
+class getuser(Resource):
+    def get(self):
+        requser = request.args.get('username')
+
+        config = {
+          "apiKey": "AIzaSyCDtC3dadmA_zOjmgfJPrCPYmKi9SNSBbg",
+          "authDomain": "nexthorizon-9094f.firebaseapp.com",
+          "databaseURL": "https://nexthorizon-9094f.firebaseio.com",
+          "projectId": "nexthorizon-9094f",
+          "storageBucket": "nexthorizon-9094f.appspot.com",
+          "messagingSenderId": "330406784555"
+        }
+
+        firebase = pyrebase.initialize_app(config)
+
+        auth = firebase.auth()
+        user = auth.sign_in_with_email_and_password("exploretheworldofdell@gmail.com", "7428Micah1711")
+
+        db = firebase.database()
+        upass = db.child("User").child(requser).child("password").get(user['idToken']).val()
+        return upass
+
+api.add_resource(adduser, '/adduser')
+api.add_resource(getuser, '/getuser')
+
+if __name__ == '__main__':
+    app.run(debug=True)
