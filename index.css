@@ -1,0 +1,187 @@
+body {background-color: #FFFFFF;
+      overflow: scroll;
+      max-width: 100%;
+      max-height: 100%;
+      margin: auto;}
+
+header {background-image: url("../Images/headerPattern.jpg");
+        width: 100%;
+        height: 30%;
+        border-bottom: 2px double #000000;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;}
+
+header h6 {color: #f0f0f0;
+           margin-top: 0;
+           margin-left: 0;
+           margin-right: 0;
+           text-align: center;
+           padding-top: 1%;}
+
+header img {border-radius: 0px 0px 8px 8px;}
+
+main {width: 100%;
+     height: 500px;
+     padding-bottom: 15%;}
+
+ footer{position: fixed;
+        width: 100%;
+        bottom: 0;
+        background-image: url("../Images/daBlueSqwad.jpg");
+        border-top: 1px solid #000000;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px}
+
+ footer h4, h6 {color: #FFFFFF;}
+
+.btn {background: #FFFFFF;
+      background-image: -webkit-linear-gradient(top, #f0f0ff, #070091);
+      background-image: -moz-linear-gradient(top, #f0f0ff, #070091);
+      background-image: -ms-linear-gradient(top, #f0f0ff, #070091);
+      background-image: -o-linear-gradient(top, #f0f0ff, #070091);
+      background-image: url("../Images/pattern.jpg");
+      border-radius: 8px 8px 0px 0px;
+      font-family: Georgia;
+      color: #FFFFFF;
+      font-size: 15px;
+      padding: 10px 20px 10px 20px;
+      text-decoration: none;
+      width: 33.3333333333%;}
+
+.btn:hover {background: #070091;
+            background-image: -webkit-linear-gradient(top, #070091, #FFFFFF);
+            background-image: -moz-linear-gradient(top, #070091, #FFFFFF);
+            background-image: -ms-linear-gradient(top, #070091, #FFFFFF);
+            background-image: -o-linear-gradient(top, #070091, #FFFFFF);
+            background-image: linear-gradient(to bottom, #070091, #f0f0ff);
+            text-decoration: none;}
+
+.container {display: flex;
+            justify-content: space-between;
+            margin-bottom: 9px;
+            padding-right: 20%;
+            padding-left: 20%;}
+
+.slideBackground {width: 660px;
+                  height: 500px;
+                  background-image: url("../Images/patternForSlideBackground.jpg");
+                  float: left;
+                  margin-left: 3%;
+                  margin-top: 3%;
+                  position: absolute;
+                  padding: 0;
+                  border-radius: 12px;}
+
+.sidebar {width: 40%;
+          height: 500px;
+          background-image: url("../Images/pattern.jpg");
+          float: right;
+          margin-top:3%;
+          margin-right: 3%;
+          padding: 0;
+          border-radius: 12px;}
+
+.sidebar h1 {color: #FFFFFF;
+             padding-top: 4%;
+             margin-left: 0;
+             margin-right: 0;
+             text-align: center;}
+
+.sidebar h2 {color: #f0f0f0;
+             padding-left: 12%;
+             padding-right: 12%;
+             font-family: Garamond;}
+
+/** Following Code is From  https://codepen.io/AMKohn/pen/EKJHf **/
+
+@import url(https://fonts.googleapis.com/css?family=Varela+Round);
+
+.slides {width: 640px;
+         height: 480px;
+         display: block;
+         position: relative;
+         padding: 0;
+         margin: 0;
+         -webkit-padding-start: 10px;}
+
+.slides * {user-select: none;
+           -ms-user-select: none;
+           -moz-user-select: none;
+           -khtml-user-select: none;
+           -webkit-user-select: none;
+           -webkit-touch-callout: none;}
+
+.slides input {display: none;}
+
+.slide-container {display: block;}
+
+.slide {top: 0;
+        opacity: 0;
+        width: 640px;
+        height: 480px;
+        display: block;
+        position: absolute;
+        transform: scale(0);
+        transition: all .7s ease-in-out;
+        margin: 0;
+        padding-top: 10px;}
+
+.slide img {width: 100%;
+            height: 100%;
+            border-radius: 4px;}
+
+.nav label {width: 100px;
+            height: 100%;
+            display: none;
+            position: absolute;
+        	  opacity: 0;
+            z-index: 9;
+            cursor: pointer;
+            transition: opacity .2s;
+            color: #FFF;
+            font-size: 156pt;
+            text-align: center;
+            line-height: 380px;
+            font-family: "Varela Round", sans-serif;
+            padding-top: 50px;}
+
+.slide:hover + .nav label {opacity: 0.5;}
+
+.nav label:hover {opacity: 1;}
+
+.nav .next {right: 0;
+            padding-top: 50px;}
+
+input:checked + .slide-container  .slide {opacity: 1;
+                                          transform: scale(1);
+                                          transition: opacity 1s ease-in-out;}
+
+input:checked + .slide-container .nav label {display: block;}
+
+.nav-dots {width: 100%;
+           bottom: 9px;
+           height: 11px;
+           display: block;
+           position: absolute;
+           text-align: center;}
+
+.nav-dots .nav-dot {top: -5px;
+                  	width: 11px;
+                  	height: 11px;
+                  	margin: 0 4px;
+                  	position: relative;
+                  	border-radius: 100%;
+                  	display: inline-block;
+                  	background-color: rgba(85, 85, 85, 0.4);}
+
+.nav-dots .nav-dot:hover {cursor: pointer;
+	                        background-color: rgba(0, 0, 0, 0.8);}
+
+input#img-1:checked ~ .nav-dots label#img-dot-1,
+input#img-2:checked ~ .nav-dots label#img-dot-2,
+input#img-3:checked ~ .nav-dots label#img-dot-3,
+input#img-4:checked ~ .nav-dots label#img-dot-4,
+input#img-5:checked ~ .nav-dots label#img-dot-5,
+input#img-6:checked ~ .nav-dots label#img-dot-6 {background: rgba(85, 85, 85, 0.8);}
+
+/** END OF CODE FROM https://codepen.io/AMKohn/pen/EKJHf **/
